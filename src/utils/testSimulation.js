@@ -1,4 +1,4 @@
-import { runSimulation } from "./simulation";
+import { runSimulation } from "./simulation.js";
 
 const processes = [
   {
@@ -19,19 +19,33 @@ const processes = [
     burstTime: 2,
     priority: 3,
   },
+  {
+    id: "P4",
+    arrivalTime: 4,
+    burstTime: 4,
+    priority: 2,
+  },
 ];
 
-const result = runSimulation(processes, "FCFS");
+const algorithms = [
+  "FCFS",
+  "SJF",
+  "SRTF",
+  "PRIORITY",
+  "PRIORITY_PREEMPTIVE",
+  "ROUND_ROBIN",
+];
 
-console.log("===== CPU SCHEDULING TEST =====");
+console.log("===== CPU SCHEDULING ALGORITHM TEST =====");
 
-console.log("Algorithm:", result.algorithm);
+for (const algorithm of algorithms) {
+  const result = runSimulation(processes, algorithm, 2);
 
-console.log("Processes:");
-console.table(result.processes);
+  console.log(`\n===== ${algorithm} =====`);
 
-console.log("Gantt Chart:");
-console.table(result.ganttChart);
+  console.log("Gantt Chart:");
+  console.table(result.ganttChart);
 
-console.log("Metrics:");
-console.table(result.metrics);
+  console.log("Metrics:");
+  console.table(result.metrics);
+}

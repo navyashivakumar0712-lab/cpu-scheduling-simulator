@@ -1,11 +1,11 @@
-import { fcfs } from "../algorithms/fcfs";
-import { sjf } from "../algorithms/sjf";
-import { srtf } from "../algorithms/srtf";
-import { priorityScheduling } from "../algorithms/priority";
-import { priorityPreemptive } from "../algorithms/priorityPreemptive";
-import { roundRobin } from "../algorithms/roundRobin";
+import { fcfs } from "../algorithms/fcfs.js";
+import { sjf } from "../algorithms/sjf.js";
+import { srtf } from "../algorithms/srtf.js";
+import { priorityScheduling } from "../algorithms/priority.js";
+import { priorityPreemptive } from "../algorithms/priorityPreemptive.js";
+import { roundRobin } from "../algorithms/roundRobin.js";
 
-import { calculateMetrics } from "./metrics";
+import { calculateMetrics } from "./metrics.js";
 
 export function runSimulation(
   processes,
